@@ -32,8 +32,8 @@ if (YII_DEBUG) {
 //);
 
 $cs
-    ->registerCoreScript('jquery', CClientScript::POS_END)
-    ->registerCoreScript('jquery.ui', CClientScript::POS_END);
+    ->registerCoreScript('jquery', CClientScript::POS_BEGIN)
+   ->registerCoreScript('jquery.ui', CClientScript::POS_HEAD);
 if (YII_DEBUG) {
     $cs
         ->registerScriptFile($themePath . '/js/bootstrap.js', CClientScript::POS_END)
@@ -47,7 +47,7 @@ $cs
 //    ->registerScriptFile('https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css', CClientScript::POS_END)
     ->registerScript('tooltip', "$('[data-toggle=\"tooltip\"]').tooltip();", CClientScript::POS_READY)
     ->registerScript('popover', "$('[data-toggle=\"popover\"]').popover();", CClientScript::POS_READY)
-    ->registerScript('analytics',
+   /* ->registerScript('analytics',
         "
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -59,7 +59,7 @@ $cs
           ga('set', 'anonymizeIp', true);
         "
         , CClientScript::POS_END
-    )
+    )*/
     ->registerScript('affix',
         "
             $('#myAffix').affix({

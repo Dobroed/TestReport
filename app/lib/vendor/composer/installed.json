@@ -1,0 +1,100 @@
+[
+    {
+        "name": "drmabuse/yii-bootstrap-3-module",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module.git",
+            "reference": "058c122bba45593437f64984ca204e363af93059"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module/get/058c122bba45593437f64984ca204e363af93059.zip",
+            "reference": "058c122bba45593437f64984ca204e363af93059",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2014-03-21 20:36:44",
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Pascal Brewing",
+                "email": "pascalbrewing@gmail.com",
+                "homepage": "http://pascal-breiwng.de/",
+                "role": "Founder and development"
+            }
+        ],
+        "description": "Yii Web Widgets",
+        "homepage": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module",
+        "keywords": [
+            "bootstrap",
+            "extension",
+            "framework",
+            "yii"
+        ]
+    },
+    {
+        "name": "z_bodya/yii-image",
+        "version": "dev-default",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "hg",
+            "url": "https://bitbucket.org/z_bodya/yii-image",
+            "reference": "065165e57208d22dadb5235dffa973fa2a27b3ad"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/z_bodya/yii-image/get/065165e57208d22dadb5235dffa973fa2a27b3ad.zip",
+            "reference": "065165e57208d22dadb5235dffa973fa2a27b3ad",
+            "shasum": ""
+        },
+        "time": "2014-01-11 15:05:47",
+        "type": "yii-extension",
+        "extra": {
+            "installer-name": "image"
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Bogdan Savluk",
+                "email": "savluk.bogdan@gmail.com"
+            }
+        ],
+        "description": "Port of Kohana Image Library to Yii",
+        "keywords": [
+            "image"
+        ]
+    },
+    {
+        "name": "yiisoft/yii",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii.git",
+            "reference": "ea01dace108ffbd102cb9ebc34ea3234e177ed58"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/yiisoft/yii/archive/ea01dace108ffbd102cb9ebc34ea3234e177ed58.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "library",
+        "installation-source": "source",
+        "description": "Yii PHP Framework",
+        "homepage": "https://github.com/yiisoft/yii"
+    }
+]

@@ -14,6 +14,9 @@
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 	'layout' => BSHtml::FORM_LAYOUT_HORIZONTAL,
+        'htmlOptions' => array(
+        'class' => 'bs-example bs-example-control-sizing'
+    )
 )); ?>
 
     <p class="help-block">Fields with <span class="required">*</span> are required.</p>
@@ -30,17 +33,45 @@
 
             <?php echo $form->textFieldControlGroup($model,'gender',array('maxlength'=>10)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'bithday'); ?>
+<!--<div class="form-group">
+<label for="MyContacts_bithday" class="control-label col-lg-2">Дата рождения</label>
+    <div class="col-lg-10">-->
 
-            <?php echo $form->textFieldControlGroup($model,'prof_id'); ?>
 
-            <?php echo $form->dropDownListControlGroup($model,'zip_code',
-                    $model->getZipcode(),
-                    array('empty' => 'Something ...', 'class' => BSHtml::INPUT_SIZE_SM)
+    <?php $this->widget('bootstrap.widgets.BsDatePicker', array(
+   //'name' => get_class($model).'_bithday',
+   'model' => $model,
+   'attribute' => 'bithday',
+   'language' => 'ru',
+   'options' => array(
+       'showAnim' => 'fold',
+       'changeYear'=>true
+   ),
+   'htmlOptions' => array(
+       'style' => '',
+       
+       
+   ),
+));?>
+         <!--  </div>    </div>-->
+            <?php //echo $form->textFieldControlGroup($model,'bithday'); ?>
+
+            <?php echo $form->dropDownListControlGroup($model,'prof_id',CHtml::listData(
+                    Profession::model()->findAll(),'prof_id','profession'),
+                    array('prompt'=>'Выберите профессию')); ?>
+            <?php echo $form->error($model,'prof_id'); ?>
+    
+
+            <?php echo $form->dropDownListControlGroup($model,'zip_code',CHtml::listdata(
+                    ZipCode::model()->findAll(),'zip_code','zip_code','city'),
+                    array('empty' => 'Индекс...', 'class' => BSHtml::INPUT_SIZE_SM)
+); ?>
+       <?php echo $form->dropDownListControlGroup($model,'status_id',CHtml::listdata(
+                    Status::model()->findAll(),'status_id','status'),
+                    array('empty' => 'Статус', 'class' => BSHtml::INPUT_SIZE_SM)
 ); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'status_id'); ?>
-
+           
             <?php echo BSHtml::formActions(array(
     BSHtml::submitButton('Submit', array('color' => BSHtml::BUTTON_COLOR_PRIMARY)),
 )); ?>

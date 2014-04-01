@@ -45,6 +45,7 @@ class MyContacts extends CActiveRecord
 			array('phone', 'length', 'max'=>11),
 			array('gender', 'length', 'max'=>10),
 			array('bithday', 'safe'),
+                    array('bithday', 'date', 'format'=>'dd.MM.yyyy'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('contact_id, last_name, first_name, phone, email, gender, bithday, prof_id, zip_code, status_id', 'safe', 'on'=>'search'),
@@ -74,15 +75,15 @@ class MyContacts extends CActiveRecord
 	{
 		return array(
 			'contact_id' => 'Contact',
-			'last_name' => 'Last Name',
-			'first_name' => 'First Name',
-			'phone' => 'Phone',
+			'last_name' => 'Фамилия',
+			'first_name' => 'Имя',
+			'phone' => 'Телефон',
 			'email' => 'Email',
-			'gender' => 'Gender',
-			'bithday' => 'Bithday',
-			'prof_id' => 'Prof',
-			'zip_code' => 'Zip Code',
-			'status_id' => 'Status',
+			'gender' => 'Пол',
+			'bithday' => 'Дата рождения',
+			'prof_id' => 'Профессия',
+			'zip_code' => 'Индекс',
+			'status_id' => 'Статус',
 		);
 	}
 
@@ -131,9 +132,20 @@ class MyContacts extends CActiveRecord
 		return parent::model($className);
 	}
         
-        public static function getZipcode() {
-        $st = array('1', '2', '3', '4', '5');
-       
-        return $st;
-    }
+protected function beforeSave() {
+   if(parent::beforeSave()) {
+       $this->bithday = date('Y-m-d', strtotime($this->bithday));//strtotime($this->date_start);
+       return true;
+   } else {
+       return false;
+   }
+}
+
+
+protected function afterFind() {
+   $date = date('d.m.Y', strtotime($this->bithday));
+   $this->bithday = $date;
+   parent::afterFind();
+}
+   
 }
